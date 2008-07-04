@@ -1,7 +1,7 @@
 Summary:	KDE Easy Publish and Share
 Name:		kepas
 Version: 	0.9
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 Source0: 	http://kent.dl.sourceforge.net/sourceforge/kepas/%name-%version.tar.bz2
 # fwang: plasmoid was disabled because it is using old API
 Patch0:		kepas-0.9-disable-plasmoid.patch
