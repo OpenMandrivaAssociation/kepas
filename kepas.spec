@@ -1,15 +1,13 @@
 Summary:	KDE Easy Publish and Share
 Name:		kepas
-Version: 	0.9
-Release: 	%mkrel 2
+Version: 	0.9.3
+Release: 	%mkrel 1
 Source0: 	http://kent.dl.sourceforge.net/sourceforge/kepas/%name-%version.tar.bz2
-# fwang: plasmoid was disabled because it is using old API
-Patch0:		kepas-0.9-disable-plasmoid.patch
 License: 	GPLv2+
 Group: 		Networking/Other
 Url: 		http://www.kde-apps.org/content/show.php?content=73968
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: 	kdebase4-workspace-devel
+BuildRequires: 	plasma-devel >= 2:4.1.83
 
 %description 
 Kepas is a zeroconf KDE4 filetransfer tool. 
@@ -32,23 +30,20 @@ Current features:
 * Monitor your Public Folders
 * available Public Folders are shown on Buddy discovery
 
-%post
-/sbin/ldconfig
-
-%postun
-/sbin/ldconfig
-
 %files -f %name.lang
 %defattr(-,root,root)
-%_kde_bindir/*
-%_kde_libdir/*.so
-%_kde_appsdir/plasma/plasma.notifyrc
-%_kde_appsdir/%name
+%{_kde_bindir}/*
+%{_kde_libdir}/*.so
+%{_kde_appsdir}/plasma/plasma.notifyrc
+%{_kde_appsdir}/%name
+%{_kde_libdir}/kde4/plasma_applet_kepas.so
+%{_kde_applicationsdir}/*.desktop
+%{_kde_iconsdir}/*/*/*/*
+%{_kde_services}/plasma-applet-kepas.desktop
 
 #--------------------------------------------------------------------
 %prep
 %setup -q -n %name-%version
-%patch0 -p0
 
 %build
 %cmake_kde4
@@ -56,9 +51,7 @@ Current features:
 
 %install
 rm -rf %{buildroot}
-cd build
-%{makeinstall_std}
-cd -
+%{makeinstall_std} -C build
 
 %find_lang %name --with-html
 
