@@ -1,7 +1,7 @@
 Summary:	KDE Easy Publish and Share
 Name:		kepas
 Version: 	0.9.3
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 Source0: 	http://kent.dl.sourceforge.net/sourceforge/kepas/%name-%version.tar.bz2
 License: 	GPLv2+
 Group: 		Networking/Other
