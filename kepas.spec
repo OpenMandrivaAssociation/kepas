@@ -1,13 +1,14 @@
 Summary:	KDE Easy Publish and Share
 Name:		kepas
 Version: 	0.9.3
-Release: 	%mkrel 3
+Release: 	3
 Source0: 	http://kent.dl.sourceforge.net/sourceforge/kepas/%name-%version.tar.bz2
+Patch0:		kepas-0.9.3-linking.patch
 License: 	GPLv2+
 Group: 		Networking/Other
 Url: 		http://www.kde-apps.org/content/show.php?content=73968
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: 	plasma-devel >= 2:4.1.83
+BuildRequires: 	kdelibs4-devel
+
 
 %description 
 Kepas is a zeroconf KDE4 filetransfer tool. 
@@ -30,8 +31,8 @@ Current features:
 * Monitor your Public Folders
 * available Public Folders are shown on Buddy discovery
 
-%files -f %name.lang
-%defattr(-,root,root)
+%files 
+%doc AUTHORS 
 %{_kde_bindir}/*
 %{_kde_libdir}/*.so
 %{_kde_appsdir}/plasma/plasma.notifyrc
@@ -44,17 +45,17 @@ Current features:
 #--------------------------------------------------------------------
 %prep
 %setup -q -n %name-%version
+%patch0 -p1
 
 %build
 %cmake_kde4
 %make
 
 %install
-rm -rf %{buildroot}
 %{makeinstall_std} -C build
 
-%find_lang %name --with-html
 
-%clean
-rm -rf %{buildroot}
+
+
+
 
