@@ -6,7 +6,7 @@ Source0: 	http://kent.dl.sourceforge.net/sourceforge/kepas/%name-%version.tar.bz
 Patch0:		kepas-0.9.3-linking.patch
 License: 	GPLv2+
 Group: 		Networking/Other
-Url: 		http://www.kde-apps.org/content/show.php?content=73968
+Url: 		https://www.kde-apps.org/content/show.php?content=73968
 BuildRequires: 	kdelibs4-devel
 
 
