@@ -7,6 +7,7 @@ Patch0:		kepas-0.9.3-linking.patch
 License: 	GPLv2+
 Group: 		Networking/Other
 Url: 		https://www.kde-apps.org/content/show.php?content=73968
+BuildRequires:	make
 BuildRequires: 	kdelibs4-devel
 
 
